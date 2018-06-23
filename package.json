@@ -1,0 +1,57 @@
+{
+  "name": "simple-fetch-client",
+  "version": "1.0.0",
+  "description": "A friendly fetch client",
+  "source": "src/index.js",
+  "main": "dist/simple-fetch-client.js",
+  "module": "dist/simple-fetch-client.m.js",
+  "browser": "dist/simple-fetch-client.umd.js",
+  "repository": "https://github.com/tiaanduplessis/simple-fetch-client",
+  "author": "Tiaan du Plessis",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard --fix",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "build": "microbundle"
+  },
+  "dependencies": {
+    "deep-assign": "^2.0.0",
+    "fast-safe-stringify": "^2.0.4",
+    "fetch-response-enhancer": "^1.0.0",
+    "nanomiddleware": "^1.0.0",
+    "tenacious-fetch": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.1.0",
+    "jest-fetch-mock": "^1.6.5",
+    "microbundle": "^0.4.4",
+    "standard": "^11.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "fetch",
+    "request",
+    "json",
+    "client",
+    "ajax"
+  ],
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "dist"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true
+    }
+  }
+}
