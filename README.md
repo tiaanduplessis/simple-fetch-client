@@ -1,5 +1,5 @@
 
-# simple-fetch-client
+# 🌐 simple-fetch-client
 [![package version](https://img.shields.io/npm/v/simple-fetch-client.svg?style=flat-square)](https://npmjs.org/package/simple-fetch-client)
 [![package downloads](https://img.shields.io/npm/dm/simple-fetch-client.svg?style=flat-square)](https://npmjs.org/package/simple-fetch-client)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
@@ -10,16 +10,19 @@
 
 ## Table of Contents
 
-- [Features](#features)
-- [Install](#install)
-- [Usage](#usage)
-- [Contribute](#contribute)
-- [License](#License)
+- [🌐 simple-fetch-client](#simple-fetch-client)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Contribute](#contribute)
+  - [License](#license)
 
 ## Features
 
 - Retries and timeouts on requests via [tenacious-fetch](https://github.com/tiaanduplessis/tenacious-fetch)
 - Using middleware via [nanomiddleware](https://github.com/tiaanduplessis/nanomiddleware)
+- Caching of requests via [lscache](https://github.com/pamelafox/lscache)
 - Parsing of responses via [fetch-response-enhancer](https://github.com/tiaanduplessis/fetch-response-enhancer)
 
 

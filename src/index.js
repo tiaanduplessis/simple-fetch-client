@@ -1,4 +1,5 @@
 import tenFetch from 'tenacious-fetch'
+import lscache from 'lscache'
 import safeStringify from 'fast-safe-stringify'
 import fetchResponseEnhancer from 'fetch-response-enhancer'
 import Middleware from 'nanomiddleware'
@@ -34,6 +35,7 @@ export default class Client {
     this.fetch = config.fetch || tenFetch
     this.middlware = new Middleware()
     this.delayTime = config.delay || false
+    this.cacheTime = config.cacheTime
 
     delete config.fetch
 
@@ -70,9 +72,20 @@ export default class Client {
       await this.delay(this.delayTime)
     }
 
+    if (opts.cache) {
+      const cachedResponse = lscache.get(url)
+      if (cachedResponse !== null) {
+        return this.middlware.run(cachedResponse)
+      }
+    }
+
     const res = await this.fetch(url, opts)
     const enhancedRes = await fetchResponseEnhancer(res, opts)
     enhancedRes.url = url
+
+    if (opts.cache) {
+      lscache.set(url, enhancedRes, opts.cacheTime || this.cacheTime || 5)
+    }
 
     return this.middlware.run(enhancedRes)
   }
