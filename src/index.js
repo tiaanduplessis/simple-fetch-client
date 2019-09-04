@@ -1,19 +1,10 @@
 import tenFetch from 'tenacious-fetch'
-import lscache from 'lscache'
 import safeStringify from 'fast-safe-stringify'
 import fetchResponseEnhancer from 'fetch-response-enhancer'
 import Middleware from 'nanomiddleware'
 import deepAssign from 'deep-assign'
 
-function toQueryString (obj = {}) {
-  // https://stackoverflow.com/a/34209399/7027045
-  const esc = encodeURIComponent
-  const query = Object.keys(obj)
-    .map(k => esc(k) + '=' + esc(obj[k]))
-    .join('&')
-
-  return `?${query}`
-}
+import { toQueryString } from './utils'
 
 export const methods = {
   get: 'GET',
@@ -21,8 +12,8 @@ export const methods = {
   head: 'HEAD',
   options: 'OPTIONS',
   post: 'POST',
-  put: 'POST',
-  patch: 'PATCH'
+  put: 'PUT',
+  patch: 'PATCH',
 }
 
 export default class Client {
@@ -35,7 +26,6 @@ export default class Client {
     this.fetch = config.fetch || tenFetch
     this.middlware = new Middleware()
     this.delayTime = config.delay || false
-    this.cacheTime = config.cacheTime
 
     delete config.fetch
 
@@ -72,20 +62,10 @@ export default class Client {
       await this.delay(this.delayTime)
     }
 
-    if (opts.cache) {
-      const cachedResponse = lscache.get(url)
-      if (cachedResponse !== null) {
-        return this.middlware.run(cachedResponse)
-      }
-    }
-
     const res = await this.fetch(url, opts)
     const enhancedRes = await fetchResponseEnhancer(res, opts)
     enhancedRes.url = url
 
-    if (opts.cache) {
-      lscache.set(url, enhancedRes, opts.cacheTime || this.cacheTime || 5)
-    }
 
     return this.middlware.run(enhancedRes)
   }

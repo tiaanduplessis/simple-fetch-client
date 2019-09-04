@@ -22,13 +22,11 @@
 
 - Retries and timeouts on requests via [tenacious-fetch](https://github.com/tiaanduplessis/tenacious-fetch)
 - Using middleware via [nanomiddleware](https://github.com/tiaanduplessis/nanomiddleware)
-- Caching of requests via [lscache](https://github.com/pamelafox/lscache)
 - Parsing of responses via [fetch-response-enhancer](https://github.com/tiaanduplessis/fetch-response-enhancer)
-
 
 ## Install
 
-This project uses [node](https://nodejs.org) and [npm](https://www.npmjs.com). 
+This project uses [node](https://nodejs.org) and [npm](https://www.npmjs.com).
 
 ```sh
 $ npm install simple-fetch-client
@@ -84,10 +82,9 @@ myAPI.getPosts().then(console.log)
 
 1. Fork it and create your feature branch: git checkout -b my-new-feature
 2. Commit your changes: git commit -am 'Add some feature'
-3. Push to the branch: git push origin my-new-feature 
+3. Push to the branch: git push origin my-new-feature
 4. Submit a pull request
 
 ## License
 
 MIT
-    
