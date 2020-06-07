@@ -18,7 +18,7 @@
     "fast-safe-stringify": "^2.0.6",
     "fetch-response-enhancer": "^1.0.0",
     "nanomiddleware": "^1.0.0",
-    "tenacious-fetch": "^2.2.2"
+    "tenacious-fetch": "^2.3.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "7.5.5",
