@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "deep-assign": "^3.0.0",
-    "fast-safe-stringify": "^2.0.6",
+    "fast-safe-stringify": "^2.0.7",
     "fetch-response-enhancer": "^1.0.0",
     "nanomiddleware": "^1.0.0",
     "tenacious-fetch": "^2.2.2"
